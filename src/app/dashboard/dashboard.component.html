@@ -1,0 +1,88 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+  <!--div class="container"-->
+    <a class="navbar-brand" routerLink="/dashboard"><span>WhatsApp CRM</span></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="icon-menu"></span> Menu
+    </button>
+
+    <div class="collapse navbar-collapse" id="ftco-nav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active"><a class="nav-link" routerLink="/dashboard">Home</a></li>
+        <li class="nav-item"><a routerLink="/accounts" class="nav-link">Accounts</a></li>
+        <li class="nav-item"><a routerLink="/contacts" class="nav-link">Contacts</a></li>
+        <li class="nav-item"><a routerLink="/loanapplications" class="nav-link">Requests</a></li>
+        <li class="nav-item"><a routerLink="/scripts" class="nav-link">Scripts</a></li>
+        <li class="nav-item"><a routerLink="/communicates" class="nav-link">Communicate</a></li> 
+        <li class="nav-item cta"><a class="nav-link logout" (click)="logout($event)">
+          <span class="icon-sign-out"></span>Log Out</a>
+        </li>      
+      </ul>
+      <span class="navbar-text">
+        Welcome {{loggedinUser | titlecase}}
+      </span>
+    </div>
+  <!--/div -->
+</nav>
+<!-- END nav -->
+
+<div class="main-panel">
+    <section class="statistics">
+      <div class="container-fluid">
+        <div class="row d-flex">
+          <div class="col-lg-4">              
+            <div class="card income text-center">
+              <div class="card-header">
+                  <strong >Active Conversations</strong>
+              </div>
+              <div class="card-body">
+                  <div class="number">{{activeuserCount}}</div> 
+                  <div class="text-right" ng-if="activeuserCount != 0">
+                      <a routerLink="/dashboard/currentActiveContacts" [ngClass]="{'disabled':activeuserCount == 0, 'card-link': true}">View Details</a>
+                  </div>                    
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">      
+            <div class="card income text-center">
+                <div class="card-header">
+                    <strong >New Contacts this week</strong>
+                </div>
+                <div class="card-body">
+                    <div class="number">{{newUsersThisWeek}}</div>
+                    <div class="text-right">
+                        <a routerLink="/dashboard/newContactsOfWeek" [ngClass]="{'disabled':newUsersThisWeek == 0, 'card-link': true}">View Details</a>
+                    </div>                      
+                </div>
+            </div>
+          </div>            
+          <div class="col-lg-4">             
+            <div class="card income text-center">
+                <div class="card-header">
+                    <strong >Contacts responded in last 1 hour</strong>
+                </div>
+                <div class="card-body">
+                    <div class="number">{{recentHourResponse}}</div>   
+                    <div class="text-right">
+                      <a routerLink="/dashboard/recentActiveContacts" [ngClass]="{'disabled': recentHourResponse == 0, 'card-link' : true}">View Details</a>         
+                    </div>                        
+                </div>
+            </div>
+          </div> 
+          <div class="col-lg-4">              
+            <div class="card income text-center">
+                <div class="card-header">
+                    <strong >Contacts spent most time here</strong>
+                </div>
+                <div class="card-body" style="padding-bottom: 0;padding-top: 2.5rem;">
+                  <div>
+                      <canvas id="most-time-spent-barchart"></canvas>
+                  </div>
+                </div>
+            </div>
+          </div>           
+        </div>
+      </div>
+    </section>
+  </div>

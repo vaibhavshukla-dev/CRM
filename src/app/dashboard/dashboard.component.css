@@ -1,0 +1,77 @@
+.statistics div[class*='col-'] .card {
+    min-height: 300px;
+    line-height: 1.8;
+    padding: 0px;
+}
+
+.statistics div[class*='col-'] .card .card-header{
+    background-color: #109fd1;
+    color: #fff;
+}
+
+.statistics h2 {
+    margin-bottom: 20px
+}
+
+.statistics .income .number {
+    font-size: 7em;
+    color: #555;
+    line-height: 181px;
+}
+
+.statistics .income strong {
+    font-size: 1.2em
+}
+
+.card.income li {
+    width: 4em;
+    height: 4em;
+    text-align: center;
+    line-height: 4em;
+    border-radius: 2em;
+    background: dodgerblue;
+    margin: 0 2.7em;
+    display: inline-block;
+    color: white;
+    position: relative;
+}
+
+.card.income ul{
+    padding-left: 0px;
+}
+  
+.card.income li::before{
+    content: '';
+    position: absolute;
+    top: 1.6em;
+    left: -5.7em;
+    width: 5.8em;
+    height: .8em;
+    background: dodgerblue;
+    z-index: 0;
+}
+  
+.card.income li:first-child::before {
+    display: none;
+}
+
+.card.income li a{
+    color: #fff !important;
+}
+
+@media (max-width: 991px) {
+    .statistics div[class*='col-'] .card {
+        height:auto;
+        margin-bottom: 20px
+    }
+    
+    .statistics .data-usage {
+        text-align: center
+    }
+}
+
+@media (min-width: 768px) {
+    .statistics h2 {
+        font-size:1.3rem
+    }
+}
